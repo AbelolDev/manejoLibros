@@ -1,0 +1,1 @@
+Guardar prestamo: http://localhost:3000/api/v1/prestamos?id_prestamo=1&id_libro=101&run_solicitante=12345678&fecha_solicitud=2025-04-28&fecha_entrega=2025-05-05&cantidad_dias=7&multas=0

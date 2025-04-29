@@ -1,11 +1,13 @@
-package com.biblioteca.model;
+package com.biblioteca.manejoLibros.model;
 
-import lombok.Getter;
-import lombok.Setter;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
-@Getter 
-@Setter 
-public class prestamo {
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+public class Libro {
 
     private Integer id_prestamo;
     private Integer id_libro;
@@ -14,6 +16,5 @@ public class prestamo {
     private String fecha_entrega;
     private Integer cantidad_dias;
     private Integer multas;
-
     
 }

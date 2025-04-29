@@ -3,7 +3,10 @@ package com.biblioteca.manejoLibros.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -19,7 +22,7 @@ public class api {
     @Autowired
     private LibroService libroService;
 
-    @GetMapping("/guardar_prestamo")
+    @PostMapping("/guardar_prestamo")
     public Libro guardarPrestamo(@RequestParam Libro libro){
         return libroService.saveLibro(libro);
     }
@@ -34,12 +37,12 @@ public class api {
         return libroService.getLibroById(id);
     }
 
-    @GetMapping("/eliminar_libro")
+    @DeleteMapping("/eliminar_libro")
     public String eliminarPrestamo(@RequestParam Integer id) {
         return libroService.deleteLibro(id);
     }
 
-    @GetMapping("/actualizar_libro")
+    @PutMapping("/actualizar_libro")
     public Libro actualizarPrestamo(@RequestParam Libro libro, @RequestParam Integer id) {
         return libroService.updateLibro(libro, id);
     }

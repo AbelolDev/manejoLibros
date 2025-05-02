@@ -5,10 +5,11 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.biblioteca.manejoLibros.model.Libro;
@@ -23,7 +24,7 @@ public class api {
     private LibroService libroService;
 
     @PostMapping("/guardar_prestamo")
-    public Libro guardarPrestamo(@RequestParam Libro libro){
+    public Libro guardarPrestamo(@RequestBody Libro libro){
         return libroService.saveLibro(libro);
     }
 
@@ -32,18 +33,18 @@ public class api {
         return libroService.getLibros();
     }
 
-    @GetMapping("/buscar_libro")
-    public Libro buscarPrestamo(@RequestParam Integer id) {
+    @GetMapping("/buscar_libro{id}")
+    public Libro buscarPrestamo(@PathVariable Integer id) {
         return libroService.getLibroById(id);
     }
 
-    @DeleteMapping("/eliminar_libro")
-    public String eliminarPrestamo(@RequestParam Integer id) {
+    @DeleteMapping("/eliminar_libro{id}")
+    public String eliminarPrestamo(@PathVariable Integer id) {
         return libroService.deleteLibro(id);
     }
 
-    @PutMapping("/actualizar_libro")
-    public Libro actualizarPrestamo(@RequestParam Libro libro, @RequestParam Integer id) {
+    @PutMapping("/actualizar_libro{id}")
+    public Libro actualizarPrestamo(@RequestBody Libro libro, @PathVariable Integer id) {
         return libroService.updateLibro(libro, id);
     }
 }
